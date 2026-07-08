@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phenry Automation Tech</title>
+    <style>
+        /* Apple-Inspired High-Tech Theme */
+        :root {
+            --bg-color: #000000;
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --accent-gradient: linear-gradient(135deg, #0052cc 0%, #00ffff 100%);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --blur: blur(20px);
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 12rem 5% 8rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Grids & Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-start {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .price-range {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .feature-list li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            color: #00ffff;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Strategy Block */
+        .strategy-block {
+            background: var(--accent-gradient);
+            border-radius: 24px;
+            padding: 1px; /* Gradient border effect */
+            margin-top: 4rem;
+        }
+
+        .strategy-content {
+            background: #0a0a0c;
+            border-radius: 23px;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .strategy-content p {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .highlight-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00ffff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 5%;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll Animation Class */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .nav-links { display: none; } /* Simple mobile hiding for brevity */
+            .strategy-content { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Phenry Automation Tech</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#packages">Packages</a>
+            <a href="#maintenance">Maintenance</a>
+            <a href="#strategy">Philosophy</a>
+        </div>
+    </nav>
+
+    <header class="fade-up">
+        <h1>Intelligence scales.<br><span>Work flows.</span></h1>
+        <p class="hero-subtitle">High-performance Python-driven systems, custom AI, and flawless automation engineered for the Jamaican market.</p>
+    </header>
+
+    <section id="services">
+        <div class="section-header fade-up">
+            <h2>Core Solutions</h2>
+            <p class="section-desc">Precision-engineered software and automation adapted to your project complexity.</p>
+        </div>
+        <div class="grid-3">
+            <!-- Service 1 -->
+            <div class="card fade-up">
+                <h3>AI Business Automation</h3>
+                <div class="price-start">JMD $50,000+</div>
+                <div class="price-range">Typical: $50k – $300k+</div>
+            </div>
+            <!-- Service 2 -->
+            <div class="card fade-up">
+                <h3>Workflow Automation</h3>
+                <div class="price-start">JMD $35,000+</div>
+                <div class="price-range">Typical: $35k – $200k</div>
+            </div>
+            <!-- Service 3 -->
+            <div class="card fade-up">
+                <h3>Custom AI Assistants</h3>
+                <div class="price-start">JMD $75,000+</div>
+                <div class="price-range">Typical: $75k – $500k+</div>
+            </div>
+            <!-- Service 4 -->
+            <div class="card fade-up">
+                <h3>Web Scraping & Data</h3>
+                <div class="price-start">JMD $30,000+</div>
+                <div class="price-range">Typical: $30k – $150k</div>
+            </div>
+            <!-- Service 5 -->
+            <div class="card fade-up">
+                <h3>Data Entry Automation</h3>
+                <div class="price-start">JMD $25,000+</div>
+                <div class="price-range">Typical: $25k – $120k</div>
+            </div>
+            <!-- Service 6 -->
+            <div class="card fade-up">
+                <h3>Reporting & Dashboards</h3>
+                <div class="price-start">JMD $40,000+</div>
+                <div class="price-range">Typical: $40k – $180k</div>
+            </div>
+            <!-- Service 7 -->
+            <div class="card fade-up">
+                <h3>Website Development</h3>
+                <div class="price-start">JMD $60,000+</div>
+                <div class="price-range">Typical: $60k – $350k+</div>
+            </div>
+            <!-- Service 8 -->
+            <div class="card fade-up">
+                <h3>Mobile App Development</h3>
+                <div class="price-start">JMD $150,000+</div>
+                <div class="price-range">Typical: $150k – $800k+</div>
+            </div>
+            <!-- Service 9 -->
+            <div class="card fade-up">
+                <h3>Custom Software Solutions</h3>
+                <div class="price-start">JMD $150,000+</div>
+                <div class="price-range">Typical: $150k – $2,000k+</div>
+            </div>
+            <!-- Service 10 -->
+            <div class="card fade-up">
+                <h3>Spreadsheet & Database</h3>
+                <div class="price-start">JMD $20,000+</div>
+                <div class="price-range">Typical: $20k – $120k</div>
+            </div>
+            <!-- Service 11 -->
+            <div class="card fade-up">
+                <h3>Graphic Design & Branding</h3>
+                <div class="price-start">JMD $8,000+</div>
+                <div class="price-range">Typical: $8k – $80k</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages">
+        <div class="section-header fade-up">
+            <h2>Package Deals</h2>
+            <p class="section-desc">Comprehensive solutions bundled for maximum operational impact.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card fade-up">
+                <h3>Starter Automation</h3>
+                <div class="price-start">JMD $40,000</div>
+                <ul class="feature-list">
+                    <li>One automated workflow</li>
+                    <li>Spreadsheet automation</li>
+                    <li>30 days of support</li>
+                </ul>
+            </div>
+            <div class="card fade-up" style="border-color: rgba(0, 255, 255, 0.3);">
+                <h3>Business Growth</h3>
+                <div class="price-start">JMD $120,000</div>
+                <ul class="feature-list">
+                    <li>AI chatbot integration</li>
+                    <li>Workflow automation</li>
+                    <li>Live Data Dashboard</li>
+                    <li>Staff training session</li>
+                    <li>60 days of support</li>
+                </ul>
+            </div>
+            <div class="card fade-up">
+                <h3>Enterprise Automation</h3>
+                <div class="price-start">From JMD $300,000</div>
+                <ul class="feature-list">
+                    <li>Multiple automations</li>
+                    <li>Custom software architecture</li>
+                    <li>Dedicated AI assistant</li>
+                    <li>Database integration</li>
+                    <li>Ongoing systemic support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="maintenance">
+        <div class="section-header fade-up">
+            <h2>Ongoing Intelligence</h2>
+            <p class="section-desc">Recurring maintenance plans to ensure your systems never sleep.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card fade-up">
+                <h3>Basic</h3>
+                <div class="price-start">JMD $8,000 <span style="font-size:1rem; color: var(--text-muted)">/mo</span></div>
+                <ul class="feature-list">
+                    <li>Routine Bug fixes</li>
+                    <li>Small system updates</li>
+                    <li>Email support</li>
+                </ul>
+            </div>
+            <div class="card fade-up">
+                <h3>Standard</h3>
+                <div class="price-start">JMD $20,000 <span style="font-size:1rem; color: var(--text-muted)">/mo</span></div>
+                <ul class="feature-list">
+                    <li>Everything in Basic</li>
+                    <li>Workflow improvements</li>
+                    <li>AI prompt optimization</li>
+                    <li>Monthly performance report</li>
+                </ul>
+            </div>
+            <div class="card fade-up">
+                <h3>Premium</h3>
+                <div class="price-start">JMD $45,000+ <span style="font-size:1rem; color: var(--text-muted)">/mo</span></div>
+                <ul class="feature-list">
+                    <li>Priority support routing</li>
+                    <li>New automation features</li>
+                    <li>24/7 System monitoring</li>
+                    <li>Staff training</li>
+                    <li>Unlimited minor updates</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="hourly">
+        <div class="section-header fade-up">
+            <h2>On-Demand Expertise</h2>
+            <p class="section-desc">Targeted, hourly consulting for smaller integrations and immediate fixes.</p>
+        </div>
+        <div class="grid-2">
+            <div class="card fade-up">
+                <ul class="feature-list" style="margin-top:0; padding-top:0; border:none;">
+                    <li><strong>AI & Automation Consulting:</strong> JMD $5,000 – $10,000 / hr</li>
+                    <li><strong>Python Development:</strong> JMD $4,000 – $8,000 / hr</li>
+                    <li><strong>Web Development:</strong> JMD $3,500 – $7,500 / hr</li>
+                </ul>
+            </div>
+            <div class="card fade-up">
+                <ul class="feature-list" style="margin-top:0; padding-top:0; border:none;">
+                    <li><strong>Data Analysis & Reporting:</strong> JMD $3,500 – $7,000 / hr</li>
+                    <li><strong>Graphic Design:</strong> JMD $2,000 – $5,000 / hr</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="strategy-block fade-up" id="strategy">
+            <div class="strategy-content">
+                <p>We don't charge for hours; we charge for the <span class="highlight-text">time we give back to you</span>.</p>
+                <p>If a custom system saves your operation 20 hours per week, and those hours are valued at JMD $2,000/hour, that's <strong>JMD $40,000 saved every single week</strong>.</p>
+                <p>Investing JMD $120,000 in an infrastructure that pays for itself in just three weeks isn't an expense. It's a strategic acquisition.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Phenry Automation Tech. Designed & Engineered by Patrick Henry.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll fade-in animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach((elem) => {
+            observer.observe(elem);
+        });
+    </script>
+</body>
+</html>
